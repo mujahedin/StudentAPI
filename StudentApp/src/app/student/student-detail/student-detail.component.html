@@ -1,0 +1,119 @@
+
+
+<div class="col-md-12  " style="margin-top: 20px;">
+    <div class="row" >
+    <div class="col-md-8" >
+        <div class="jubotron py-4 card "style="padding-left: 10px;" >  
+            <h4 style="color: #880a0a"><i class="fas fa-user-graduate"></i><b> Students</b> App</h4>
+        </div>
+        <form style="padding-left: 10px;" novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)" class="card" >
+        <input type="hidden" name="studentId"
+             [value]="service.formData.studentId" />
+        <div class="row ">
+    
+
+        <div class="col form-group"><input class="form-control form-control-sm " placeholder="Imię"
+            name="studentName" required minlength="2" #studentName="ngModel"[(ngModel)]="service.formData.studentName"
+            [class.invalid] = "studentName.invalid && studentName.touched"></div>
+        <div class="col form-group"><input class="form-control form-control-sm " placeholder="Nazwisko"
+            name="studentLastName" required minlength="2" #clientLastName="ngModel"[(ngModel)]="service.formData.studentLastName"
+            [class.invalid] = "clientLastName.invalid && clientLastName.touched"></div>
+        <div class="col form-group"><input class="form-control form-control-sm " placeholder="Nazwa uczelni"
+            name="studentCollege" required minlength="2" #studentCollege="ngModel"[(ngModel)]="service.formData.studentCollege"
+            [class.invalid] = "studentCollege.invalid && studentCollege.touched"></div>
+        <div class="col form-group"><input  class="form-control form-control-sm " placeholder="Kierunek"
+            name="studentCourse" required minlength="2" #studentCourse="ngModel"[(ngModel)]="service.formData.studentCourse" 
+            [class.invalid] = "studentCourse.invalid && studentCourse.touched"></div>
+        <div class="col form-group"> <button class="btn btn-sm btn-success" type="submit" [disabled]="form.invalid">DODAJ / ZAPISZ</button></div>
+        
+     </div>         
+   
+    </form>
+    <div class=" card" style="padding-left: 10px;">
+        <table class="table"> 
+            <thead class="thead-light">
+                                        <tr id="trrr"> 
+                <th style="width:20%">
+                    Imię      
+                </th>
+                <th style="width:20%">
+                    Nazwisko  
+                </th>
+                <th style="width:20%">
+                    Nazwa uczelni 
+                </th>
+                <th style="width:20%">
+                    Kierunek
+                </th>
+                <th style="width:20%"></th>
+            </tr>  
+            </thead>
+            <tbody>
+                <tr *ngFor="let cl of service.list" id="trr">
+
+               
+                   
+                    <td style="width:20%"  (click)="populateForm(cl)"> {{cl.studentName}}</td>
+                    <td style="width:20%"  (click)="populateForm(cl)">{{cl.studentLastName}}</td>
+                    <td style="width:20%"  (click)="populateForm(cl)"> {{cl.studentCollege}}</td>
+                    <td style="width:20%"  (click)="populateForm(cl)">{{cl.studentCourse}}</td>
+                    <td style="text-align: right;width:20%;padding-right: 40px;"  >
+                    <i class="far fa-trash-alt fa-lg text-danger "  (click)="onDelete(cl.studentId)"></i>
+                    
+              
+                       
+                    </td>
+                </tr>
+              
+         
+            </tbody>
+        </table></div>
+    </div>
+   <div class="col-md-4 " >
+    <app-student-indexes-form> </app-student-indexes-form>
+   <div class="card" style="margin-top:20px ;">    
+    <div class="jubotron py-4" >  
+        <h4 style="color: #880a0a;margin-left: 20px;" ><i class="fas fa-clipboard"></i><b> Index</b> </h4>
+    </div>
+    <select style ="padding: 7px;" class="form-control form-control-sm"  [(ngModel)]="idhelpme">
+        <option selected [ngValue]=0> Wybierz studenta, aby wyświetlić jego indeks ▼</option>
+      <option *ngFor="let xxx of service.list" [ngValue]= "xxx.studentId" > {{ xxx.studentName}} {{xxx.studentLastName}} </option>
+    </select>  
+    <div class="row">
+      
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr id="trrr">
+                        <th>Przedmiot</th>
+                        <th>Ocena</th>
+                        <th >
+                            Data wystawienia
+                        </th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container  *ngFor="let pd of services.list">
+                    <tr *ngIf="idhelpme==pd.studentId" id="trr">
+                       
+                            
+                            <td  (click)="populateForms(pd)"> {{pd.studentSubject}}</td>
+                            <td  (click)="populateForms(pd)"> {{pd.studentMark}}</td>
+                            <td  (click)="populateForms(pd)">{{pd.studentDateMark}}</td>
+                    
+                            <td><i class="far fa-trash-alt fa-lg text-danger" (click)="onDelet(pd.indexId)"></i></td> 
+                    
+                    </tr></ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+        </div>
+    </div>
+</div>
+
+</div> 
+

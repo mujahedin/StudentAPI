@@ -1,0 +1,43 @@
+
+<div class="card" > 
+    <h4 style="color: #880a0a;margin-left: 20px;margin-top: 20px;" ><i class="fas fa-chalkboard-teacher"></i><b> Marks</b> </h4>
+<form  novalidate autocomplete="off" #form="ngForm" class="d-inline" (submit)="onSubmit(form)" >
+    <input type="hidden" name="indexId" 
+    [value]="services.formsData.indexId" />
+    <div class="form-group col-md-12" style="padding: 15px;">
+        Student: 
+         <select class="form-select"  name="studentId" #studentId="ngModel" [(ngModel)]="services.formsData.studentId">
+            <option > Wybierz studenta, aby dodać ocenę ▼</option>
+          <option *ngFor="let xx of service.list" [ngValue]= "xx.studentId" > {{ xx.studentName}} {{xx.studentLastName}} </option>
+        </select> 
+  <p></p>
+       <b>Przedmiot: </b>    
+        <input class="form-control fom-control-lg" placeholder="Nazwa przedmiotu" 
+        name="studentSubject" required minlength="1" #studentSubject="ngModel"[(ngModel)]="services.formsData.studentSubject"
+        [class.invalid] = "studentSubject.invalid && studentSubject.touched"> 
+    </div>
+
+    <div class="row" style="padding: 15px;">
+        <div class="form-group col-md-4">
+            Ocena: 
+            <input class="form-control fom-control-lg" placeholder="Ocena"
+            name="studentMark" #studentMark="ngModel"[(ngModel)]="services.formsData.studentMark"
+            required minlength="1" maxlength="3" [class.invalid] = "studentMark.invalid && studentMark.touched">
+        </div>
+        <div class="form-group col-md-8">
+            Data: 
+            <input class="form-control fom-control-lg" placeholder="Data wystawienia oceny"
+            name="studentDateMark" #studentDateMark="ngModel"[(ngModel)]="services.formsData.studentDateMark"
+            required minlength="1" [class.invalid] = "studentDateMark.invalid && studentDateMark.touched">
+        </div>
+    </div>
+    <div class="form-group" style="padding: 15px;">
+        <button class="btn btn-sm btn-success" style="margin-top: 1px;" type="submit" [disabled]="form.invalid">DODAJ / ZAPISZ</button>
+    </div>
+</form>
+
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)" >
+    <input type="hidden" name="studentId"
+    [value]="services.formData.studentId" />
+    </form>
+</div>
