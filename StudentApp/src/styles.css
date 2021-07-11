@@ -1,4 +1,4 @@
-.form-group label {
+/* .form-group label {
   color: #928f8a;
 }
 
@@ -11,14 +11,7 @@
   font-weight: 300;
 }
 
-.form-control {
-    border-radius: 5px;
-    background-color: #F5F5F4;
-    border-color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-    border-top-color: #D9D9D7;
-    color: #53504d;
-}
+
 
 .form-control:focus {
     border-color: #A2B86B;
@@ -27,15 +20,17 @@
 
 .form-control label {
     color: #7D7B78;
-} 
+} */
 
 #trr:hover{ background-color: #e0e0e0a4;
   cursor: pointer;}
 #trrr,#trrr:hover,#trrr:active{ color: #880a0a;
-  font-weight: 400;
-  background-color:#ada79f ;
-}
+  /* font-weight: 400; */
 
+}
+.form-control {
+ opacity: 75%;
+}
 
 /*for invalid form controls*/
 input.invalid {
@@ -91,3 +86,28 @@ fieldset[disabled] .btn.active {
   color: #a2b3b1; 
   background-color: #ffffff; 
 } */
+.table-curved {
+  border-collapse: separate;
+}
+.table-curved {
+  border: solid #ccc 1px;
+  border-radius: 6px;
+  border-left:0px;
+}
+
+
+.table-curved th:first-child {
+  border-radius: 6px 0 0 0;
+}
+.table-curved th:last-child {
+  border-radius: 0 6px 0 0;
+}
+.table-curved th:only-child{
+  border-radius: 6px 6px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+  border-radius: 0 0 0 6px;
+}
+.table-curved tr:last-child td:last-child {
+  border-radius: 0 0 6px 0;
+}
