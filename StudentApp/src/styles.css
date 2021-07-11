@@ -1,4 +1,4 @@
-/* .form-group label {
+.form-group label {
   color: #928f8a;
 }
 
@@ -27,7 +27,7 @@
 
 .form-control label {
     color: #7D7B78;
-} */
+} 
 
 #trr:hover{ background-color: #e0e0e0a4;
   cursor: pointer;}

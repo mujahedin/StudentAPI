@@ -5,9 +5,9 @@
     <input type="hidden" name="indexId" 
     [value]="services.formsData.indexId" />
     <div class="form-group col-md-12" style="padding: 15px;">
-        Student: 
+    <b>   Student: </b> 
          <select class="form-select"  name="studentId" #studentId="ngModel" [(ngModel)]="services.formsData.studentId">
-            <option > Wybierz studenta, aby dodać ocenę ▼</option>
+            <option > Wybierz studenta, aby dodać ocenę</option>
           <option *ngFor="let xx of service.list" [ngValue]= "xx.studentId" > {{ xx.studentName}} {{xx.studentLastName}} </option>
         </select> 
   <p></p>
@@ -17,15 +17,15 @@
         [class.invalid] = "studentSubject.invalid && studentSubject.touched"> 
     </div>
 
-    <div class="row" style="padding: 15px;">
+    <div class="row" style="padding-left: 15px;padding-right: 15px;">
         <div class="form-group col-md-4">
-            Ocena: 
+           <b>Ocena: </b> 
             <input class="form-control fom-control-lg" placeholder="Ocena"
             name="studentMark" #studentMark="ngModel"[(ngModel)]="services.formsData.studentMark"
             required minlength="1" maxlength="3" [class.invalid] = "studentMark.invalid && studentMark.touched">
         </div>
         <div class="form-group col-md-8">
-            Data: 
+            <b>Data: </b>
             <input class="form-control fom-control-lg" placeholder="Data wystawienia oceny"
             name="studentDateMark" #studentDateMark="ngModel"[(ngModel)]="services.formsData.studentDateMark"
             required minlength="1" [class.invalid] = "studentDateMark.invalid && studentDateMark.touched">
